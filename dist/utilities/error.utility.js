@@ -1,9 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getError = void 0;
-const base_model_1 = require("../base/base.model");
+exports.getError = exports.ApplicationError = void 0;
+class ApplicationError extends Error {
+    statusCode;
+    messageCode;
+    constructor(opts) {
+        const { message, messageCode, statusCode = 400 } = opts;
+        super(message);
+        this.statusCode = statusCode;
+        this.messageCode = messageCode;
+    }
+}
+exports.ApplicationError = ApplicationError;
 const getError = (opts) => {
-    const error = new base_model_1.ApplicationError(opts);
+    const error = new ApplicationError(opts);
     return error;
 };
 exports.getError = getError;
