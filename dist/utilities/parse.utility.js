@@ -89,19 +89,21 @@ const isFloat = (n) => {
 exports.isFloat = isFloat;
 // -------------------------------------------------------------------------
 const int = (input) => {
+    var _a;
     if (!input || Number.isNaN(input)) {
         return 0;
     }
-    const normalized = input?.toString()?.replace(/,/g, '');
+    const normalized = (_a = input === null || input === void 0 ? void 0 : input.toString()) === null || _a === void 0 ? void 0 : _a.replace(/,/g, '');
     return Number.parseInt(normalized, 10);
 };
 exports.int = int;
 // -------------------------------------------------------------------------
 const float = (input, digit = 2) => {
+    var _a;
     if (!input || Number.isNaN(input)) {
         return 0;
     }
-    const normalized = input?.toString()?.replace(/,/g, '');
+    const normalized = (_a = input === null || input === void 0 ? void 0 : input.toString()) === null || _a === void 0 ? void 0 : _a.replace(/,/g, '');
     return (0, round_1.default)(Number.parseFloat(normalized), digit);
 };
 exports.float = float;

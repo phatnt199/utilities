@@ -2,8 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getError = exports.ApplicationError = void 0;
 class ApplicationError extends Error {
-    statusCode;
-    messageCode;
     constructor(opts) {
         const { message, messageCode, statusCode = 400 } = opts;
         super(message);

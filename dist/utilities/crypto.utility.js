@@ -6,12 +6,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.decrypt = exports.encrypt = exports.hash = void 0;
 const crypto_js_1 = __importDefault(require("crypto-js"));
 const hash = (text, options = { type: 'MD5', secret: null }) => {
-    if (!options?.type) {
+    if (!(options === null || options === void 0 ? void 0 : options.type)) {
         return text;
     }
-    switch (options?.type) {
+    switch (options === null || options === void 0 ? void 0 : options.type) {
         case 'SHA256': {
-            if (!options?.secret) {
+            if (!(options === null || options === void 0 ? void 0 : options.secret)) {
                 return text;
             }
             return crypto_js_1.default.HmacSHA256(text, options.secret).toString(crypto_js_1.default.enc.Hex);
