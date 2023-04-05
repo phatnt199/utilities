@@ -18,8 +18,8 @@ const defaultLogger = {
   },
   error: (message: string, args: any) => {
     console.error(message, args);
-  }
-}
+  },
+};
 
 // -------------------------------------------------------------
 export class NetworkHelper {
@@ -27,17 +27,15 @@ export class NetworkHelper {
   private worker: AxiosInstance;
   private logger: any;
 
-  constructor(opts: { 
-    name: string; 
-    requestConfigs: AxiosRequestConfig;
-    logger?: any;
-  }) {
+  constructor(opts: { name: string; requestConfigs: AxiosRequestConfig; logger?: any }) {
     const { name, requestConfigs } = opts;
     this.logger = opts.logger || defaultLogger;
     this.name = name;
 
     this.logger.info(` Creating new network request worker instance! Name: ${this.name}`);
+    const defaultConfigs = require('axios/lib/defaults/index');
     this.worker = axios.create({
+      ...defaultConfigs,
       ...requestConfigs,
     });
   }

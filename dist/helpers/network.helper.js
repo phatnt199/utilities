@@ -34,7 +34,7 @@ const defaultLogger = {
     },
     error: (message, args) => {
         console.error(message, args);
-    }
+    },
 };
 // -------------------------------------------------------------
 class NetworkHelper {
@@ -43,7 +43,8 @@ class NetworkHelper {
         this.logger = opts.logger || defaultLogger;
         this.name = name;
         this.logger.info(` Creating new network request worker instance! Name: ${this.name}`);
-        this.worker = axios_1.default.create(Object.assign({}, requestConfigs));
+        const defaultConfigs = require('axios/lib/defaults/index');
+        this.worker = axios_1.default.create(Object.assign(Object.assign({}, defaultConfigs), requestConfigs));
     }
     getProtocol(url) {
         return url.startsWith('http:') ? HTTP : HTTPS;
