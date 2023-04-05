@@ -1,6 +1,6 @@
-import { ApplicationError, IApplicationError } from '@/base/base.model';
+import { ApplicationError } from '@/base/base.model';
 
-export const getError = (opts: IApplicationError) => {
+export const getError = (opts: { statusCode?: number; messageCode?: string; message: string }) => {
   const error = new ApplicationError(opts);
   return error;
 };

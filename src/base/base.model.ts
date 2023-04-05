@@ -1,14 +1,10 @@
-export interface IApplicationError {
-  statusCode?: number;
-  messageCode?: string;
-  message: string;
-}
+export interface IApplicationError { }
 
 export class ApplicationError extends Error {
   statusCode: number;
   messageCode?: string;
 
-  constructor(opts: IApplicationError) {
+  constructor(opts: { statusCode?: number; messageCode?: string; message: string }) {
     const { message, messageCode, statusCode = 400 } = opts;
     super(message);
 
