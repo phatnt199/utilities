@@ -44,7 +44,8 @@ export class Queue<ElementType> {
 
     return value;
   }
- getElementAt(position = 0): ElementType | undefined {
+
+  getElementAt(position = 0): ElementType | undefined {
     return this.storage?.[position];
   }
 }
