@@ -1,5 +1,4 @@
 export class App {
-  static readonly APPLICATION_NAME = process.env.APP_ENV_APPLICATION_NAME ?? 'PNT';
   static readonly TIME_OFFSET = '+07:00';
   static readonly DEFAULT_LOCALE = 'en.UTF-8';
 }

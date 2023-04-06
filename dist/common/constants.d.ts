@@ -1,5 +1,4 @@
 export declare class App {
-    static readonly APPLICATION_NAME: string;
     static readonly TIME_OFFSET = "+07:00";
     static readonly DEFAULT_LOCALE = "en.UTF-8";
 }
