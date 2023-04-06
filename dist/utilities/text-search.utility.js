@@ -1,11 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getSearchText = void 0;
-const voca_1 = __importDefault(require("voca"));
-const get_1 = __importDefault(require("lodash/get"));
+const voca_1 = require("voca");
+const get_1 = require("lodash/get");
 const getSearchText = (entity, fields, moreData) => {
     var _a, _b;
     const re = new RegExp(/[`~!@#$%^&*()_|+\-=?;:'",.<>{}[]\\\/]/, 'g');
@@ -29,4 +26,3 @@ const getSearchText = (entity, fields, moreData) => {
     return result.join(' ');
 };
 exports.getSearchText = getSearchText;
-//# sourceMappingURL=text-search.utility.js.map

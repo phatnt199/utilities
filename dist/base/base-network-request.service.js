@@ -10,15 +10,12 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseNetworkRequest = void 0;
 const network_helper_1 = require("../helpers/network.helper");
 const utilities_1 = require("../utilities");
-const get_1 = __importDefault(require("lodash/get"));
-const isEmpty_1 = __importDefault(require("lodash/isEmpty"));
+const get_1 = require("lodash/get");
+const isEmpty_1 = require("lodash/isEmpty");
 class BaseNetworkRequest {
     constructor(opts) {
         var _a;
@@ -45,12 +42,12 @@ class BaseNetworkRequest {
             });
         }
         if (baseUrl.endsWith('/')) {
-            baseUrl = baseUrl.slice(0, -1); // Remove / at the end
+            baseUrl = baseUrl.slice(0, -1);
         }
         const joined = paths
             .map((path) => {
             if (!path.startsWith('/')) {
-                path = `/${path}`; // Add / to the start of url path
+                path = `/${path}`;
             }
             return path;
         })
@@ -59,4 +56,3 @@ class BaseNetworkRequest {
     }
 }
 exports.BaseNetworkRequest = BaseNetworkRequest;
-//# sourceMappingURL=base-network-request.service.js.map

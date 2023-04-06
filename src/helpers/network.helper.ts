@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
-import { stringify } from '@/utilities';
+import { stringify } from './../utilities';
 
 const HTTP = 'http';
 const HTTPS = 'https';

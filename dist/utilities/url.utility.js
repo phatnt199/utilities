@@ -15,4 +15,3 @@ const parse = (searchString) => {
     return rs;
 };
 exports.parse = parse;
-//# sourceMappingURL=url.utility.js.map

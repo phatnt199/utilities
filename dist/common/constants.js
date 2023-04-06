@@ -28,4 +28,3 @@ class Sorts {
 exports.Sorts = Sorts;
 Sorts.DESC = 'desc';
 Sorts.ASC = 'asc';
-//# sourceMappingURL=constants.js.map

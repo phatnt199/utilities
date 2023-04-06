@@ -6,9 +6,6 @@
   "keywords": [],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "engines": {
-    "node": "14 || 16 || 17 || 18"
-  },
   "scripts": {
     "prebuild": "yarn lint",
     "build": "lb-tsc -p tsconfig.json && tsc-alias -p tsconfig.json",
@@ -29,7 +26,7 @@
   "author": "Phat Nguyen <tanphat199@gmail.com>",
   "license": "ISC",
   "files": [
-    "README_DEV.md",
+    "README.md",
     "dist",
     "src",
     "!*/__tests__"
@@ -52,7 +49,7 @@
     "@types/voca": "^1.4.2",
     "eslint": "^8.33.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.8.3",
+    "prettier": "^2.8.7",
     "source-map-support": "^0.5.21",
     "ts-node": "^10.9.1",
     "tsc-alias": "^1.7.0",

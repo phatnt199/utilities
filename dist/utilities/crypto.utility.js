@@ -1,10 +1,7 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.decrypt = exports.encrypt = exports.hash = void 0;
-const crypto_js_1 = __importDefault(require("crypto-js"));
+const crypto_js_1 = require("crypto-js");
 const hash = (text, options = { type: 'MD5', secret: null }) => {
     if (!(options === null || options === void 0 ? void 0 : options.type)) {
         return text;
@@ -29,4 +26,3 @@ const encrypt = (message, secret) => crypto_js_1.default.AES.encrypt(message.toS
 exports.encrypt = encrypt;
 const decrypt = (message, secret) => crypto_js_1.default.AES.decrypt(message, secret).toString(crypto_js_1.default.enc.Latin1);
 exports.decrypt = decrypt;
-//# sourceMappingURL=crypto.utility.js.map

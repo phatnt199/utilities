@@ -19,13 +19,10 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NetworkHelper = void 0;
-const axios_1 = __importDefault(require("axios"));
-const utilities_1 = require("../utilities");
+const axios_1 = require("axios");
+const utilities_1 = require("./../utilities");
 const HTTP = 'http';
 const HTTPS = 'https';
 const defaultLogger = {
@@ -36,7 +33,6 @@ const defaultLogger = {
         console.error(message, args);
     },
 };
-// -------------------------------------------------------------
 class NetworkHelper {
     constructor(opts) {
         const { name, requestConfigs } = opts;
@@ -49,9 +45,6 @@ class NetworkHelper {
     getProtocol(url) {
         return url.startsWith('http:') ? HTTP : HTTPS;
     }
-    // -------------------------------------------------------------
-    // SEND REQUEST
-    // -------------------------------------------------------------
     send(opts, logger) {
         return __awaiter(this, void 0, void 0, function* () {
             const t = new Date().getTime();
@@ -67,9 +60,6 @@ class NetworkHelper {
             return response;
         });
     }
-    // -------------------------------------------------------------
-    // GET REQUEST
-    // -------------------------------------------------------------
     get(opts) {
         return __awaiter(this, void 0, void 0, function* () {
             const { url, params, configs } = opts, rest = __rest(opts, ["url", "params", "configs"]);
@@ -77,9 +67,6 @@ class NetworkHelper {
             return response;
         });
     }
-    // -------------------------------------------------------------
-    // POST REQUEST
-    // -------------------------------------------------------------
     post(opts) {
         return __awaiter(this, void 0, void 0, function* () {
             const { url, body, configs } = opts, rest = __rest(opts, ["url", "body", "configs"]);
@@ -87,7 +74,6 @@ class NetworkHelper {
             return response;
         });
     }
-    // -------------------------------------------------------------
     put(opts) {
         return __awaiter(this, void 0, void 0, function* () {
             const { url, body, configs } = opts, rest = __rest(opts, ["url", "body", "configs"]);
@@ -95,7 +81,6 @@ class NetworkHelper {
             return response;
         });
     }
-    // -------------------------------------------------------------
     patch(opts) {
         return __awaiter(this, void 0, void 0, function* () {
             const { url, body, configs } = opts, rest = __rest(opts, ["url", "body", "configs"]);
@@ -103,7 +88,6 @@ class NetworkHelper {
             return response;
         });
     }
-    // -------------------------------------------------------------
     delete(opts) {
         return __awaiter(this, void 0, void 0, function* () {
             const { url, configs } = opts, rest = __rest(opts, ["url", "configs"]);
@@ -113,4 +97,3 @@ class NetworkHelper {
     }
 }
 exports.NetworkHelper = NetworkHelper;
-//# sourceMappingURL=network.helper.js.map

@@ -15,4 +15,3 @@ const getError = (opts) => {
     return error;
 };
 exports.getError = getError;
-//# sourceMappingURL=error.utility.js.map
