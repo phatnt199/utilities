@@ -33,9 +33,9 @@ export class NetworkHelper {
     this.name = name;
 
     this.logger.info(` Creating new network request worker instance! Name: ${this.name}`);
-    const defaultConfigs = require('axios/lib/defaults/index');
+    // const defaultConfigs = require('axios/lib/defaults/index');
     this.worker = axios.create({
-      ...defaultConfigs,
+      // ...defaultConfigs,
       ...requestConfigs,
     });
   }
