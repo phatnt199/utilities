@@ -15,7 +15,6 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./crypto.utility"), exports);
-__exportStar(require("./date.utility"), exports);
 __exportStar(require("./error.utility"), exports);
 __exportStar(require("./parse.utility"), exports);
 __exportStar(require("./text-search.utility"), exports);

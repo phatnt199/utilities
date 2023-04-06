@@ -66,4 +66,4 @@ node_modules.zip
 
 dist/tests/*
 src/tests/*
-
+deploy-local.sh

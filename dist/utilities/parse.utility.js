@@ -1,9 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getNumberValue = exports.toStringDecimal = exports.float = exports.int = exports.isFloat = exports.isInt = exports.keysToCamel = exports.toCamel = exports.toBlobRequestBody = exports.getUID = void 0;
+exports.getNumberValue = exports.toStringDecimal = exports.float = exports.int = exports.isFloat = exports.isInt = exports.keysToCamel = exports.toCamel = exports.getUID = void 0;
 const get_1 = require("lodash/get");
 const round_1 = require("lodash/round");
-const multer_1 = require("multer");
 const INTL_0_DIGITS_FORMATER = new Intl.NumberFormat('en-US', {
     maximumFractionDigits: 0,
     minimumFractionDigits: 0,
@@ -14,21 +13,6 @@ const INTL_2_DIGITS_FORMATER = new Intl.NumberFormat('en-US', {
 });
 const getUID = () => Math.random().toString(36).slice(2).toUpperCase();
 exports.getUID = getUID;
-const toBlobRequestBody = (request, response) => {
-    const storage = multer_1.default.memoryStorage();
-    const upload = (0, multer_1.default)({ storage });
-    return new Promise((resolve, reject) => {
-        upload.any()(request, response, (err) => {
-            if (err) {
-                reject(err);
-            }
-            else {
-                resolve(request.files);
-            }
-        });
-    });
-};
-exports.toBlobRequestBody = toBlobRequestBody;
 const toCamel = (s) => {
     return s.replace(/([-_][a-z])/gi, (sub) => {
         return sub.toUpperCase().replace('-', '').replace('_', '');

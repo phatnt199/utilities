@@ -22,7 +22,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NetworkHelper = void 0;
 const axios_1 = require("axios");
-const utilities_1 = require("./../utilities");
+const utilities_1 = require("../utilities");
 const HTTP = 'http';
 const HTTPS = 'https';
 const defaultLogger = {

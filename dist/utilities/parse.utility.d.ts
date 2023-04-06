@@ -1,5 +1,4 @@
 export declare const getUID: () => string;
-export declare const toBlobRequestBody: (request: any, response: any) => Promise<any>;
 export declare const toCamel: (s: string) => string;
 export declare const keysToCamel: (object: object) => any;
 export declare const isInt: (n: any) => boolean;

@@ -6,6 +6,5 @@
   "arrowParens": "always",
   "bracketSameLine": true,
   "bracketSpacing": true,
-  "tabWidth": 2,
-  "breakBeforeElse": false
+  "tabWidth": 2
 }

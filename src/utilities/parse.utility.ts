@@ -1,6 +1,5 @@
 import get from 'lodash/get';
 import round from 'lodash/round';
-import multer from 'multer';
 
 // -------------------------------------------------------------------------
 const INTL_0_DIGITS_FORMATER = new Intl.NumberFormat('en-US', {
@@ -15,22 +14,6 @@ const INTL_2_DIGITS_FORMATER = new Intl.NumberFormat('en-US', {
 
 // -------------------------------------------------------------------------
 export const getUID = () => Math.random().toString(36).slice(2).toUpperCase();
-
-// -------------------------------------------------------------------------
-export const toBlobRequestBody = (request: any, response: any) => {
-  const storage = multer.memoryStorage();
-  const upload = multer({ storage });
-
-  return new Promise<any>((resolve, reject) => {
-    upload.any()(request, response, (err: any) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(request.files);
-      }
-    });
-  });
-};
 
 // -------------------------------------------------------------------------
 export const toCamel = (s: string) => {
