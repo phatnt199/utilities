@@ -22,6 +22,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NetworkHelper = void 0;
 const axios_1 = require("axios");
+const utilities_1 = require("../utilities");
 const HTTP = 'http';
 const HTTPS = 'https';
 class NetworkHelper {
@@ -40,8 +41,7 @@ class NetworkHelper {
             const t = new Date().getTime();
             const { url, method = 'get', params, body, configs } = opts;
             const props = Object.assign({ url,
-                method,
-                params, data: body }, configs);
+                method, params: params ? (0, utilities_1.stringify)(params) : null, data: body }, configs);
             logger === null || logger === void 0 ? void 0 : logger.info('[send] URL: %s | Props: %o', url, props);
             const response = yield this.worker.request(props);
             logger === null || logger === void 0 ? void 0 : logger.info(`[network]][send] Took: %s(ms)`, new Date().getTime() - t);

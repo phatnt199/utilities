@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import { stringify } from '@/utilities';
 
 const HTTP = 'http';
 const HTTPS = 'https';
@@ -6,9 +7,9 @@ const HTTPS = 'https';
 interface IRequestOptions {
   url: string;
   method?: 'get' | 'post' | 'put' | 'patch' | 'delete' | 'options';
-  params?: object;
-  body?: object;
-  configs?: object;
+  params?: Record<string | symbol, any>;
+  body?: any;
+  configs?: any;
 }
 
 // -------------------------------------------------------------
@@ -41,7 +42,7 @@ export class NetworkHelper {
     const props: AxiosRequestConfig = {
       url,
       method,
-      params,
+      params: params ? stringify(params) : null,
       data: body,
       ...configs,
     };

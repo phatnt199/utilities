@@ -2,7 +2,21 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parse = exports.stringify = void 0;
 const stringify = (params) => {
-    const rs = new URLSearchParams(params);
+    const normalizedParams = {};
+    for (const key in params) {
+        switch (typeof params[key]) {
+            case 'number':
+            case 'string': {
+                normalizedParams[key] = params[key];
+                break;
+            }
+            default: {
+                normalizedParams[key] = JSON.stringify(params[key]);
+                break;
+            }
+        }
+    }
+    const rs = new URLSearchParams(normalizedParams);
     return rs.toString();
 };
 exports.stringify = stringify;
