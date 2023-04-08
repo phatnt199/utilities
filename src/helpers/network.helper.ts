@@ -45,7 +45,10 @@ export class NetworkHelper {
       params,
       data: body,
       paramsSerializer: {
-        encode: (p: any) => stringify(p),
+        encode: (p) => {
+          logger?.info(p);
+          return stringify(p);
+        },
       },
       ...configs,
     };
