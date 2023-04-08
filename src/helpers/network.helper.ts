@@ -44,10 +44,8 @@ export class NetworkHelper {
       method,
       params: params && stringify(params),
       data: body,
-      paramsSerializer: {
-        serialize: (p) => {
-          return stringify(p);
-        },
+      paramsSerializer: (p) => {
+        return stringify(p);
       },
       ...configs,
     };
