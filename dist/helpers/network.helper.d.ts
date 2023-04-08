@@ -9,7 +9,6 @@ interface IRequestOptions {
 export declare class NetworkHelper {
     private name;
     private worker;
-    private logger;
     constructor(opts: {
         name: string;
         requestConfigs: AxiosRequestConfig;

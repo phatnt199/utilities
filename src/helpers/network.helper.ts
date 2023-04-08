@@ -12,27 +12,16 @@ interface IRequestOptions {
   configs?: object;
 }
 
-const defaultLogger = {
-  info: (message: string, args: any) => {
-    console.log(message, args);
-  },
-  error: (message: string, args: any) => {
-    console.error(message, args);
-  },
-};
-
 // -------------------------------------------------------------
 export class NetworkHelper {
   private name: string;
   private worker: AxiosInstance;
-  private logger: any;
 
   constructor(opts: { name: string; requestConfigs: AxiosRequestConfig; logger?: any }) {
     const { name, requestConfigs } = opts;
-    this.logger = opts.logger || defaultLogger;
     this.name = name;
 
-    this.logger.info(` Creating new network request worker instance! Name: ${this.name}`);
+    opts?.logger?.info(` Creating new network request worker instance! Name: ${this.name}`);
     // const defaultConfigs = require('axios/lib/defaults/index');
     this.worker = axios.create({
       // ...defaultConfigs,
@@ -62,10 +51,10 @@ export class NetworkHelper {
       ...configs,
     };
 
-    this.logger.info(`[send] URL: ${url} | Props: ${JSON.stringify(props)}`);
+    logger?.info('[send] URL: %s | Props: %o', url, props);
     const response = await this.worker.request(props);
 
-    logger?.info(`[network]][send] Took: ${new Date().getTime() - t} ms!`);
+    logger?.info(`[network]][send] Took: %s(ms)`, new Date().getTime() - t);
     return response;
   }
 

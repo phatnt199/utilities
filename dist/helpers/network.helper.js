@@ -25,20 +25,12 @@ const axios_1 = require("axios");
 const utilities_1 = require("../utilities");
 const HTTP = 'http';
 const HTTPS = 'https';
-const defaultLogger = {
-    info: (message, args) => {
-        console.log(message, args);
-    },
-    error: (message, args) => {
-        console.error(message, args);
-    },
-};
 class NetworkHelper {
     constructor(opts) {
+        var _a;
         const { name, requestConfigs } = opts;
-        this.logger = opts.logger || defaultLogger;
         this.name = name;
-        this.logger.info(` Creating new network request worker instance! Name: ${this.name}`);
+        (_a = opts === null || opts === void 0 ? void 0 : opts.logger) === null || _a === void 0 ? void 0 : _a.info(` Creating new network request worker instance! Name: ${this.name}`);
         this.worker = axios_1.default.create(Object.assign({}, requestConfigs));
     }
     getProtocol(url) {
@@ -53,9 +45,9 @@ class NetworkHelper {
                 params, data: body, paramsSerializer: {
                     encode: (p) => (0, utilities_1.stringify)(p),
                 } }, configs);
-            this.logger.info(`[send] URL: ${url} | Props: ${JSON.stringify(props)}`);
+            logger === null || logger === void 0 ? void 0 : logger.info('[send] URL: %s | Props: %o', url, props);
             const response = yield this.worker.request(props);
-            logger === null || logger === void 0 ? void 0 : logger.info(`[network]][send] Took: ${new Date().getTime() - t} ms!`);
+            logger === null || logger === void 0 ? void 0 : logger.info(`[network]][send] Took: %s(ms)`, new Date().getTime() - t);
             return response;
         });
     }
