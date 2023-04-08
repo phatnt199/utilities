@@ -30,7 +30,7 @@ class NetworkHelper {
         var _a;
         const { name, requestConfigs } = opts;
         this.name = name;
-        (_a = opts === null || opts === void 0 ? void 0 : opts.logger) === null || _a === void 0 ? void 0 : _a.info(` Creating new network request worker instance! Name: ${this.name}`);
+        (_a = opts === null || opts === void 0 ? void 0 : opts.logger) === null || _a === void 0 ? void 0 : _a.info('Creating new network request worker instance! Name: %s', this.name);
         this.worker = axios_1.default.create(Object.assign({}, requestConfigs));
     }
     getProtocol(url) {

@@ -20,8 +20,7 @@ export class NetworkHelper {
   constructor(opts: { name: string; requestConfigs: AxiosRequestConfig; logger?: any }) {
     const { name, requestConfigs } = opts;
     this.name = name;
-
-    opts?.logger?.info(` Creating new network request worker instance! Name: ${this.name}`);
+    opts?.logger?.info('Creating new network request worker instance! Name: %s', this.name);
     // const defaultConfigs = require('axios/lib/defaults/index');
     this.worker = axios.create({
       // ...defaultConfigs,
