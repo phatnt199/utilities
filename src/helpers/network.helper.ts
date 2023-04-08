@@ -1,5 +1,4 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
-import { stringify } from '@/utilities';
 
 const HTTP = 'http';
 const HTTPS = 'https';
@@ -44,9 +43,6 @@ export class NetworkHelper {
       method,
       params,
       data: body,
-      paramsSerializer: {
-        encode: (p: any) => stringify(p),
-      },
       ...configs,
     };
 

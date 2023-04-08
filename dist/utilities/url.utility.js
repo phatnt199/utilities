@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parse = exports.stringify = void 0;
-const stringify = (params = {}) => {
+const stringify = (params) => {
     const rs = new URLSearchParams(params);
     return rs.toString();
 };

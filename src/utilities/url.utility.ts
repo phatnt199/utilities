@@ -1,4 +1,4 @@
-export const stringify = (params = {}) => {
+export const stringify = (params: any) => {
   const rs = new URLSearchParams(params);
   return rs.toString();
 };
