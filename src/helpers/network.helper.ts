@@ -42,11 +42,10 @@ export class NetworkHelper {
     const props: AxiosRequestConfig = {
       url,
       method,
-      params,
+      params: params && stringify(params),
       data: body,
       paramsSerializer: {
-        encode: (p) => {
-          logger?.info(p);
+        serialize: (p) => {
           return stringify(p);
         },
       },
