@@ -2,9 +2,9 @@ import { AxiosRequestConfig } from 'axios';
 interface IRequestOptions {
     url: string;
     method?: 'get' | 'post' | 'put' | 'patch' | 'delete' | 'options';
-    params?: Record<string | symbol, any>;
-    body?: any;
-    configs?: any;
+    params?: object;
+    body?: object;
+    configs?: object;
 }
 export declare class NetworkHelper {
     private name;

@@ -41,7 +41,10 @@ class NetworkHelper {
             const t = new Date().getTime();
             const { url, method = 'get', params, body, configs } = opts;
             const props = Object.assign({ url,
-                method, params: params ? (0, utilities_1.stringify)(params) : null, data: body }, configs);
+                method,
+                params, data: body, paramsSerializer: {
+                    encode: (p) => (0, utilities_1.stringify)(p),
+                } }, configs);
             logger === null || logger === void 0 ? void 0 : logger.info('[send] URL: %s | Props: %o', url, props);
             const response = yield this.worker.request(props);
             logger === null || logger === void 0 ? void 0 : logger.info(`[network]][send] Took: %s(ms)`, new Date().getTime() - t);

@@ -7,9 +7,9 @@ const HTTPS = 'https';
 interface IRequestOptions {
   url: string;
   method?: 'get' | 'post' | 'put' | 'patch' | 'delete' | 'options';
-  params?: Record<string | symbol, any>;
-  body?: any;
-  configs?: any;
+  params?: object;
+  body?: object;
+  configs?: object;
 }
 
 // -------------------------------------------------------------
@@ -42,8 +42,11 @@ export class NetworkHelper {
     const props: AxiosRequestConfig = {
       url,
       method,
-      params: params ? stringify(params) : null,
+      params,
       data: body,
+      paramsSerializer: {
+        encode: (p: any) => stringify(p),
+      },
       ...configs,
     };
 
